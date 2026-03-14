@@ -1,5 +1,9 @@
-package com.shark.sharkbank.transaction.entity;
+package com.shark.sharkbank.transaction.dtos;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.shark.sharkbank.account.dtos.AccountDTO;
 import com.shark.sharkbank.account.entity.Account;
 import com.shark.sharkbank.enums.TransactionStatus;
 import com.shark.sharkbank.enums.TransactionType;
@@ -12,34 +16,27 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Entity
 @Data
 @Builder
-@Table(name = "transactions")
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class Transaction {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class TransactionDTO {
+
     private Long id;
 
-    @Column(nullable = false)
     private BigDecimal amount;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
     private TransactionType transactionType;
 
-    @Column(nullable = false)
-    private LocalDateTime transactionDate = LocalDateTime.now();
+    private LocalDateTime transactionDate;
     private String description;
 
-    @Enumerated(EnumType.STRING)
     private TransactionStatus status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "account_id", nullable = false)
-    private Account account;
+    @JsonBackReference
+    private AccountDTO account;
 
     private String sourceAccount;
     private String destinationAccount;

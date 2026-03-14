@@ -1,14 +1,21 @@
 package com.shark.sharkbank.notification.entity;
 
 import com.shark.sharkbank.auth_users.entity.User;
+import com.shark.sharkbank.enums.NotificationType;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Data
+@Builder
 @Table(name = "notifications")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +24,9 @@ public class Notification {
     private String subject;
     private String recipient;
     private String body;
-    private String type;
+
+    @Enumerated(EnumType.STRING)
+    private NotificationType type;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

@@ -1,6 +1,7 @@
 package com.shark.sharkbank.auth_users.dtos;
 
 import com.fasterxml.jackson.annotation.*;
+import com.shark.sharkbank.account.dtos.AccountDTO;
 import com.shark.sharkbank.role.entity.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
