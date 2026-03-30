@@ -9,6 +9,7 @@ import com.shark.sharkbank.auth_users.entity.User;
 import com.shark.sharkbank.enums.AccountStatus;
 import com.shark.sharkbank.enums.AccountType;
 import com.shark.sharkbank.enums.Currency;
+import com.shark.sharkbank.transaction.dtos.TransactionDTO;
 import com.shark.sharkbank.transaction.entity.Transaction;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
