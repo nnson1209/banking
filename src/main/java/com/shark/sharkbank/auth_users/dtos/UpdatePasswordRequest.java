@@ -1,8 +1,9 @@
 package com.shark.sharkbank.auth_users.dtos;
 
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
 
+@Data
 public class UpdatePasswordRequest {
     @NotBlank(message = "Old Password is required")
     private String oldPassword;
