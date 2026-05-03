@@ -23,18 +23,4 @@ public class SharkbankApplication {
 
 	}
 
-//    @Bean
-//    CommandLineRunner runner(){
-//        return args -> {
-//            NotificationDTO notificationDTO = NotificationDTO.builder()
-//                    .recipient("nnson1209@gmail.com")
-//                    .subject("Hello testing email")
-//                    .body("This is testing email")
-//                    .type(NotificationType.EMAIL)
-//                    .build();
-//
-//            notificationService.sendEmail(notificationDTO, new User());
-//        };
-//    }
-
 }
